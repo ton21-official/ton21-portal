@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ton21 Portal 🌐</title>
+  <style>
+    body {
+      background-color: #0b0b0f;
+      color: #f0d173;
+      font-family: "Segoe UI", Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 30px 10px 10px;
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #f0d173;
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #f0d173; }
+      to { box-shadow: 0 0 30px #ffe794; }
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-top: 15px;
+      color: #f0d173;
+    }
+
+    p {
+      color: #cfcfcf;
+      font-size: 15px;
+      margin: 10px 25px 25px;
+    }
+
+    .btn {
+      display: block;
+      margin: 12px auto;
+      width: 80%;
+      max-width: 320px;
+      background-color: #f0d173;
+      color: #0b0b0f;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      background-color: #ffe794;
+      transform: scale(1.03);
+    }
+
+    .lang {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .lang button {
+      background: none;
+      border: 1px solid #f0d173;
+      color: #f0d173;
+      margin: 5px;
+      border-radius: 6px;
+      padding: 4px 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://raw.githubusercontent.com/ton21-official/ton21_official/main/logo.png" alt="Ton21 Logo">
+    <h1>Ton21 Portal</h1>
+    <p>💫 The main gateway to the Ton21 Ecosystem</p>
+  </header>
+
+  <main>
+    <button class="btn" onclick="openLink('https://ton21-official.github.io/ton21-wallet/')">💰 Buy & Wallet</button>
+    <button class="btn" onclick="openLink('https://ton21-official.github.io/ton21-play/')">🎮 Play Zone</button>
+    <button class="btn" onclick="openLink('https://ton21-official.github.io/ton21-airdrop/')">🎁 Airdrops</button>
+    <button class="btn" onclick="openLink('https://ton21-official.github.io/ton21-stats/')">📊 Stats & Rewards</button>
+    <button class="btn" onclick="openLink('https://ton21-official.github.io/ton21-partners/')">🤝 Partners</button>
+    <button class="btn" onclick="openLink('https://ton21-official.github.io/ton21-ai/')">🧠 AI Tools</button>
+  </main>
+
+  <div class="lang">
+    🌐 Language:
+    <button onclick="setLang('ru')">🇷🇺</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+    <button onclick="setLang('zh')">🇨🇳</button>
+    <button onclick="setLang('hi')">🇮🇳</button>
+  </div>
+
+  <footer>
+    © 2025 Ton21 Project — All rights reserved
+  </footer>
+
+  <script>
+    function openLink(url) {
+      if (window.Telegram && Telegram.WebApp) {
+        Telegram.WebApp.openLink(url);
+      } else {
+        window.open(url, "_blank");
+      }
+    }
+
+    const translations = {
+      ru: {
+        title: "Ton21 Портал",
+        desc: "💫 Главный вход в экосистему Ton21",
+        btn1: "💰 Кошелёк и покупки",
+        btn2: "🎮 Игровая зона",
+        btn3: "🎁 Эйрдропы",
+        btn4: "📊 Статистика и награды",
+        btn5: "🤝 Партнёры",
+        btn6: "🧠 AI Инструменты"
+      },
+      zh: {
+        title: "Ton21 门户",
+        desc: "💫 进入 Ton21 生态系统的主要入口",
+        btn1: "💰 钱包与购买",
+        btn2: "🎮 游戏区",
+        btn3: "🎁 空投",
+        btn4: "📊 数据与奖励",
+        btn5: "🤝 合作伙伴",
+        btn6: "🧠 AI 工具"
+      },
+      hi: {
+        title: "Ton21 पोर्टल",
+        desc: "💫 Ton21 पारिस्थितिकी तंत्र का मुख्य द्वार",
+        btn1: "💰 वॉलेट और खरीदारी",
+        btn2: "🎮 खेल क्षेत्र",
+        btn3: "🎁 एयरड्रॉप्स",
+        btn4: "📊 आँकड़े और पुरस्कार",
+        btn5: "🤝 भागीदार",
+        btn6: "🧠 AI उपकरण"
+      },
+      en: {
+        title: "Ton21 Portal",
+        desc: "💫 The main gateway to the Ton21 Ecosystem",
+        btn1: "💰 Buy & Wallet",
+        btn2: "🎮 Play Zone",
+        btn3: "🎁 Airdrops",
+        btn4: "📊 Stats & Rewards",
+        btn5: "🤝 Partners",
+        btn6: "🧠 AI Tools"
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.querySelector("h1").innerText = t.title;
+      document.querySelector("p").innerText = t.desc;
+      const btns = document.querySelectorAll(".btn");
+      btns[0].innerText = t.btn1;
+      btns[1].innerText = t.btn2;
+      btns[2].innerText = t.btn3;
+      btns[3].innerText = t.btn4;
+      btns[4].innerText = t.btn5;
+      btns[5].innerText = t.btn6;
+    }
+  </script>
+</body>
+</html>
